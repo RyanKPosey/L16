@@ -61,7 +61,7 @@ void destroyNodeList(nodeType*& head, nodeType*& tail, int& numNodes) {
         previous = current;
         current = current->next; // Get nextNode;
         delete previous; // Delete node
-        numNodes--;
+        numNodes--; // Decrement node count
     }
 
     head = NULL;
