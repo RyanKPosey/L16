@@ -66,3 +66,12 @@ void destroyNodeList(nodeType*& head, nodeType*& tail, int& numNodes) {
     head = NULL;
     tail = NULL;
 }
+
+void printList(nodeType* head) {
+    // Traverse linked list
+    nodeType* current = head;
+    while (current != NULL) {
+        cout << current->data << endl;
+        current = current->next; // Move to next node
+    }
+}
