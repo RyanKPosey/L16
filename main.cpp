@@ -50,3 +50,19 @@ void buildList(nodeType*& head, nodeType*& tail, int numNodes, int sentinel) {
         cin >> nodeValue;
     }
 }
+
+void destroyNodeList(nodeType*& head, nodeType*& tail, int& numNodes) {
+    // Traverse linked list
+    nodeType* current = head;
+    nodeType* previous = NULL;
+
+    while (current != NULL) {
+        cout << "Deleting " << current->data << endl;
+        previous = current;
+        current = current->next; // Get nextNode;
+        delete previous; // Delete node
+    }
+
+    head = NULL;
+    tail = NULL;
+}
