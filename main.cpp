@@ -75,3 +75,14 @@ void printList(nodeType* head) {
         current = current->next; // Move to next node
     }
 }
+
+int main() {
+    // init head & tail
+    nodeType* head = NULL;
+    nodeType* tail = NULL;
+
+    int numNodes = 0;
+    buildList(head, tail, numNodes, -999);
+    printList(head);
+    destroyNodeList(head, tail, numNodes);
+}
