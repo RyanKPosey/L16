@@ -135,9 +135,48 @@ int main() {
     // init head & tail
     nodeType* head = NULL;
     nodeType* tail = NULL;
+    int searchValue;
 
     int numNodes = 0;
     buildList(head, tail, numNodes, -999);
     printList(head);
+
+    cout << "Enter a value to search for: ";
+    cin >> searchValue;
+    cout << endl;
+    nodeType* foundNode = search(head, searchValue);
+
+    if (foundNode != NULL) {
+        cout << "Value " << searchValue << " found in the list." << endl;
+    } else {
+        cout << "Value " << searchValue << " not found in the list." << endl;
+    }
+
+    int newValue;
+    cout << "Enter a value to edit: ";
+    cin >> searchValue;
+    cout << endl;
+    cout << "Enter the new value: ";
+    cin >> newValue;
+    cout << endl;
+
+    if (editValue(head, searchValue, newValue)) {
+        cout << "Value " << searchValue << " edited to " << newValue << "." << endl;
+    } else {
+        cout << "Value " << searchValue << " not found for editing." << endl;
+    }
+
+    cout << "Enter a value to delete: ";
+    cin >> searchValue;
+    cout << endl;
+
+    if (deleteValue(head, tail, searchValue, numNodes)) {
+        cout << "Value " << searchValue << " deleted from the list." << endl;
+    } else {
+        cout << "Value " << searchValue << " not found for deletion." << endl;
+    }
+
     destroyNodeList(head, tail, numNodes);
+
+    return 0;
 }
