@@ -101,6 +101,36 @@ bool editValue(nodeType* head, int oldValue, int newValue) {
     return false; // Value not found
 }
 
+bool deleteValue(nodeType*& head, nodeType*& tail, int key, int& numNodes) {
+    nodeType* current = head;
+    nodeType* previous = NULL;
+
+    while (current != NULL) {
+        if (current->data == key) {
+            // Node found
+            if (previous == NULL) {
+                // Deleting head
+                head = current->next;
+                if (head == NULL) {
+                    tail = NULL; // List is now empty
+                }
+            } else {
+                previous->next = current->next;
+                if (current == tail) {
+                    tail = previous; // Update tail if needed
+                }
+            }
+            delete current;
+            numNodes--; // Decrement node count
+            return true; // Deletion successful
+        }
+        previous = current;
+        current = current->next; // Move to next node
+    }
+
+    return false; // Value not found
+}
+
 int main() {
     // init head & tail
     nodeType* head = NULL;
