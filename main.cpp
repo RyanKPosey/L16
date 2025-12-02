@@ -77,6 +77,19 @@ void printList(nodeType* head) {
     }
 }
 
+nodeType* search(nodeType* head, int key) {
+    nodeType* current = head;
+
+    while (current != NULL) {
+        if (current->data == key) {
+            return current; // Found the value
+        }
+        current = current->next; // Move to next node
+    }
+
+    return NULL; // Value not found
+}
+
 int main() {
     // init head & tail
     nodeType* head = NULL;
