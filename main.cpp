@@ -90,6 +90,17 @@ nodeType* search(nodeType* head, int key) {
     return NULL; // Value not found
 }
 
+bool editValue(nodeType* head, int oldValue, int newValue) {
+    nodeType* targetNode = search(head, oldValue);
+
+    if (targetNode != NULL) {
+        targetNode->data = newValue;
+        return true; // Edit successful
+    }
+
+    return false; // Value not found
+}
+
 int main() {
     // init head & tail
     nodeType* head = NULL;
