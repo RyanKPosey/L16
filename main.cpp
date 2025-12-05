@@ -178,6 +178,9 @@ int main() {
         cout << "Value " << searchValue << " not found for deletion." << endl;
     }
 
+    cout << "Final list contents after edit and deletion:" << endl;
+    printList(head);
+
     destroyNodeList(head, tail, numNodes);
 
     return 0;
