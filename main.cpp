@@ -47,7 +47,7 @@ void buildList(nodeType*& head, nodeType*& tail, int& numNodes, int sentinel) {
 
 
         // get input again
-        cout << "Type a value to add to the linked list (type " << sentinel << " to quit)";
+        cout << "Type a value to add to the linked list (type " << sentinel << " to quit): ";
         cin >> nodeValue;
 		  cout << endl;
     }
