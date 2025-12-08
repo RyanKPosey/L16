@@ -44,6 +44,28 @@ void insertOrdered(nodeType*& head, nodeType*& tail, int value, int& numNodes) {
     numNodes++;
 }
 
+void buildOrderedList(nodeType*& head, nodeType*& tail, int& numNodes, int sentinel) {
+    // temp node
+    nodeType* newNode = nullptr;
+
+    int nodeValue;
+
+    // get user input
+    cout << "Type a value to add to the linked list in order (type " << sentinel << " to quit): ";
+    cin >> nodeValue;
+    cout << endl;
+
+    // populate linked list
+    while (nodeValue != sentinel) {
+        insertOrdered(head, tail, nodeValue, numNodes);
+
+        // get input again
+        cout << "Type a value to add to the linked list in order (type " << sentinel << " to quit): ";
+        cin >> nodeValue;
+        cout << endl;
+    }
+}
+
 void buildList(nodeType*& head, nodeType*& tail, int& numNodes, int sentinel) {
     // temp node
     nodeType* newNode = nullptr;
