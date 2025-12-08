@@ -1,8 +1,8 @@
 /*
     Programmer: Ryan Posey
-    Assignment: L16B
+    Assignment: L16C
     Purpose: Practice linked lists
-    Due date: 12/2/2025
+    Due date: 12/7/2025
 */
 #include <iostream>
 
