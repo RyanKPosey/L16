@@ -13,6 +13,37 @@ struct nodeType {
     nodeType* next;
 };
 
+void insertOrdered(nodeType*& head, nodeType*& tail, int value, int& numNodes) {
+    // Create new node
+    nodeType* newNode = new nodeType;
+    newNode->data = value;
+    newNode->next = NULL;
+
+    // If list is empty or new node should be the first node
+    if (head == NULL || head->data >= value) {
+        newNode->next = head;
+        head = newNode;
+        if (tail == NULL) {
+            tail = newNode; // If list was empty, set tail to new node
+        }
+    } else {
+        // Traverse to find the correct position
+        nodeType* current = head;
+        while (current->next != NULL && current->next->data < value) {
+            current = current->next;
+        }
+        // Insert the new node
+        newNode->next = current->next;
+        current->next = newNode;
+
+        // Update tail if necessary
+        if (newNode->next == NULL) {
+            tail = newNode;
+        }
+    }
+    numNodes++;
+}
+
 void buildList(nodeType*& head, nodeType*& tail, int& numNodes, int sentinel) {
     // temp node
     nodeType* newNode = nullptr;
