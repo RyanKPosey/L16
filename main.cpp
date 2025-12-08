@@ -106,7 +106,7 @@ void buildList(nodeType*& head, nodeType*& tail, int& numNodes, int sentinel) {
     }
 }
 
-void destroyNodeList(nodeType*& head, nodeType*& tail, int& numNodes) {
+void destroyList(nodeType*& head, nodeType*& tail, int& numNodes) {
     // Traverse linked list
     nodeType* current = head;
     nodeType* previous = NULL;
@@ -197,7 +197,7 @@ int main() {
     cout << "Ordered list (" << numNodes << " nodes):" << endl;
     printList(head);
 
-    destroyNodeList(head, tail, numNodes);
+    destroyList(head, tail, numNodes);
     return 0;
 
 }
