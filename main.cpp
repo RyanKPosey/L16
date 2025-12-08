@@ -112,7 +112,6 @@ void destroyList(nodeType*& head, nodeType*& tail, int& numNodes) {
     nodeType* previous = NULL;
 
     while (current != NULL) {
-        cout << "Deleting " << current->data << endl;
         previous = current;
         current = current->next; // Get nextNode;
         delete previous; // Delete node
