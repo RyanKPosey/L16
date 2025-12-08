@@ -188,62 +188,16 @@ bool deleteValue(nodeType*& head, nodeType*& tail, int key, int& numNodes) {
 
 int main() {
     // init head & tail
-    nodeType* head = NULL;
-    nodeType* tail = NULL;
-    int searchValue;
-
-    // build linked list
+    nodeType *head = NULL;
+    nodeType *tail = NULL;
     int numNodes = 0;
-    buildList(head, tail, numNodes, -999);
+
+    buildOrderedList(head, tail, numNodes, -999);
+
+    cout << "Ordered list (" << numNodes << " nodes):" << endl;
     printList(head);
 
-    // get search value
-    cout << "Enter a value to search for: ";
-    cin >> searchValue;
-    cout << endl;
-    nodeType* foundNode = search(head, searchValue);
-
-    // display search result
-    if (foundNode != NULL) {
-        cout << "Value " << searchValue << " found in the list." << endl;
-    } else {
-        cout << "Value " << searchValue << " not found in the list." << endl;
-    }
-
-    // get edit values
-    int newValue;
-    cout << "Enter a value to edit: ";
-    cin >> searchValue;
-    cout << endl;
-    cout << "Enter the new value: ";
-    cin >> newValue;
-    cout << endl;
-
-    // edit value in the list
-    if (editValue(head, searchValue, newValue)) {
-        cout << "Value " << searchValue << " edited to " << newValue << "." << endl;
-    } else {
-        cout << "Value " << searchValue << " not found for editing." << endl;
-    }
-
-    // get delete value
-    cout << "Enter a value to delete: ";
-    cin >> searchValue;
-    cout << endl;
-
-    // delete value from the list
-    if (deleteValue(head, tail, searchValue, numNodes)) {
-        cout << "Value " << searchValue << " deleted from the list." << endl;
-    } else {
-        cout << "Value " << searchValue << " not found for deletion." << endl;
-    }
-
-    // display final list contents
-    cout << "Final list contents after edit and deletion:" << endl;
-    printList(head);
-
-    // destroy linked list
     destroyNodeList(head, tail, numNodes);
-
     return 0;
+
 }
