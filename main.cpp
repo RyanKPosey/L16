@@ -123,7 +123,7 @@ void destroyNodeList(nodeType*& head, nodeType*& tail, int& numNodes) {
     tail = NULL;
 }
 
-void printList(nodeType* head) {
+void printList(const nodeType* head) {
     // Traverse linked list
     nodeType* current = head;
     while (current != NULL) {
