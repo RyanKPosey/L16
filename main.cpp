@@ -45,9 +45,6 @@ void insertOrdered(nodeType*& head, nodeType*& tail, int value, int& numNodes) {
 }
 
 void buildOrderedList(nodeType*& head, nodeType*& tail, int& numNodes, int sentinel) {
-    // temp node
-    nodeType* newNode = nullptr;
-
     int nodeValue;
 
     // get user input
