@@ -165,3 +165,8 @@ bool personType::operator<(const personType& rhs)  {
         return this->getLastName() < rhs.getLastName();
     }
 }
+
+std::ostream& operator<<(std::ostream& os, const personType& p) {
+    os << p.getFirstName() << " " << p.getLastName();
+    return os;
+}
