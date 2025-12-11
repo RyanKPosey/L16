@@ -216,11 +216,8 @@ public: // Expose setters/getters publicly for driver usage
     /** \brief Get pointer to this person's father (may be nullptr). */
     personType* getFather() const;
 
-
-    // Operator overloading
-    
+    // Operator overloading declarations
     bool operator<(const personType& rhs);
-
     friend std::ostream& operator<<(std::ostream& os, const personType& p);
 };
 

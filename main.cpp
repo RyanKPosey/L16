@@ -11,6 +11,20 @@
 
 using namespace std;
 
+// Operator overloads for personType
+bool personType::operator<(const personType& rhs) {
+    if (this->getLastName() == rhs.getLastName()) {
+        return this->getFirstName() < rhs.getFirstName();
+    } else {
+        return this->getLastName() < rhs.getLastName();
+    }
+}
+
+ostream& operator<<(ostream& os, const personType& p) {
+    os << p.getFirstName() << " " << p.getLastName();
+    return os;
+}
+
 struct personNode {
     personType* data;
     personNode* next;

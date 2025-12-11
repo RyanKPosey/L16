@@ -157,16 +157,3 @@ int personType::getYoungest(const vector<personType>& people) {
     }
     return static_cast<int>(youngestIndex);
 }
-
-bool personType::operator<(const personType& rhs)  {
-    if (this->getLastName() == rhs.getLastName()) {
-        return this->getFirstName() < rhs.getFirstName();
-    } else {
-        return this->getLastName() < rhs.getLastName();
-    }
-}
-
-std::ostream& operator<<(std::ostream& os, const personType& p) {
-    os << p.getFirstName() << " " << p.getLastName();
-    return os;
-}
