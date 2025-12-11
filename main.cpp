@@ -1,6 +1,6 @@
 /*
     Programmer: Ryan Posey
-    Assignment: L16D
+    Assignment: L16
     Purpose: Practice linked lists
     Due date: 12/10/2025
 */
