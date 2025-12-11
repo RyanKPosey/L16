@@ -6,6 +6,8 @@
 */
 #include <iostream>
 #include "personType.h"
+#include "studentType.h"
+#include "professorType.h"
 
 using namespace std;
 
@@ -195,7 +197,19 @@ int main() {
     personNode *tail = NULL;
     int numNodes = 0;
 
-    buildOrderedList(head, tail, numNodes, -999);
+    professorType* professor1 = new professorType("Alan", "Turing", "1 Computation Way", 72.0,
+                           "1912-06-23", 'M', 41,
+                           "E123", "CS", "PhD");
+    professorType* professor2 = new professorType("Ada", "Lovelace", "2 Computation Way", 65.0,
+                           "1815-12-10", 'F', 36,
+                           "E124", "CS", "MSc");
+    studentType* student1 = new studentType("Grace", "Hopper", 3.8, "CS", "S123");
+    studentType* student2 = new studentType("Donald", "Knuth", 3.9, "CS", "S124");
+    
+    insertOrdered(head, tail, professor1, numNodes);
+    insertOrdered(head, tail, professor2, numNodes);
+    insertOrdered(head, tail, student1, numNodes);
+    insertOrdered(head, tail, student2, numNodes);
 
     cout << "Ordered list (" << numNodes << " nodes):" << endl;
     printList(head);
