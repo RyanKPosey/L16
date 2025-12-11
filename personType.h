@@ -220,6 +220,8 @@ public: // Expose setters/getters publicly for driver usage
     // Operator overloading
     
     bool operator<(const personType& rhs);
+
+    friend std::ostream& operator<<(std::ostream& os, const personType& p);
 };
 
 #endif // PERSON_TYPE_H
