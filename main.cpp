@@ -174,6 +174,7 @@ bool deleteValue(personNode*& head, personNode*& tail, int key, int& numNodes) {
                     tail = previous; // Update tail if needed
                 }
             }
+            delete current->data; // Delete personType data 
             delete current;
             numNodes--; // Decrement node count
             return true; // Deletion successful
