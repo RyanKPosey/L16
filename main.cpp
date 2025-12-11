@@ -1,8 +1,8 @@
 /*
     Programmer: Ryan Posey
     Assignment: L16D
-    Purpose: Ordered linked list of personType* with operator overloading
-    Due date: 12/11/2025
+    Purpose: Practice linked lists
+    Due date: 12/10/2025
 */
 #include <iostream>
 #include "personType.h"
