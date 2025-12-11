@@ -215,6 +215,11 @@ public: // Expose setters/getters publicly for driver usage
 
     /** \brief Get pointer to this person's father (may be nullptr). */
     personType* getFather() const;
+
+
+    // Operator overloading
+    
+    bool operator<(const personType& rhs);
 };
 
 #endif // PERSON_TYPE_H
