@@ -113,6 +113,7 @@ void destroyNodeList(personNode*& head, personNode*& tail, int& numNodes) {
         cout << "Deleting " << current->data << endl;
         previous = current;
         current = current->next; // Get nextNode;
+        delete previous->data; // Delete personType data
         delete previous; // Delete node
         numNodes--; // Decrement node count
     }
