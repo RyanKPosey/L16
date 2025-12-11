@@ -14,7 +14,7 @@ struct personNode {
     personNode* next;
 };
 
-void insertOrdered(personNode*& head, personNode*& tail, int value, int& numNodes) {
+void insertOrdered(personNode*& head, personNode*& tail, personType* value, int& numNodes) {
     // Create new node
     personNode* newNode = new personNode;
     newNode->data = value;
