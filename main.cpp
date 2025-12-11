@@ -45,6 +45,7 @@ void insertOrdered(personNode*& head, personNode*& tail, personType* value, int&
     numNodes++;
 }
 
+/* 
 void buildOrderedList(personNode*& head, personNode*& tail, int& numNodes, int sentinel) {
     int nodeValue;
 
@@ -63,7 +64,8 @@ void buildOrderedList(personNode*& head, personNode*& tail, int& numNodes, int s
         cout << endl;
     }
 }
-
+*/
+/* 
 void buildList(personNode*& head, personNode*& tail, int& numNodes, int sentinel) {
     // temp node
     personNode* newNode = nullptr;
@@ -103,6 +105,7 @@ void buildList(personNode*& head, personNode*& tail, int& numNodes, int sentinel
 		  cout << endl;
     }
 }
+    */
 
 void destroyNodeList(personNode*& head, personNode*& tail, int& numNodes) {
     // Traverse linked list
@@ -131,7 +134,7 @@ void printList(personNode* head) {
     }
 }
 
-personNode* search(personNode* head, int key) {
+/* personNode* search(personNode* head, int key) {
     personNode* current = head;
 
     while (current != NULL) {
@@ -142,9 +145,9 @@ personNode* search(personNode* head, int key) {
     }
 
     return NULL; // Value not found
-}
+} */
 
-bool editValue(personNode* head, int oldValue, int newValue) {
+/* bool editValue(personNode* head, int oldValue, int newValue) {
     personNode* targetNode = search(head, oldValue);
 
     if (targetNode != NULL) {
@@ -153,9 +156,9 @@ bool editValue(personNode* head, int oldValue, int newValue) {
     }
 
     return false; // Value not found
-}
+} */
 
-bool deleteValue(personNode*& head, personNode*& tail, int key, int& numNodes) {
+/* bool deleteValue(personNode*& head, personNode*& tail, int key, int& numNodes) {
     personNode* current = head;
     personNode* previous = NULL;
 
@@ -184,7 +187,7 @@ bool deleteValue(personNode*& head, personNode*& tail, int key, int& numNodes) {
     }
 
     return false; // Value not found
-}
+} */
 
 int main() {
     // init head & tail
