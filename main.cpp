@@ -1,8 +1,8 @@
 /*
     Programmer: Ryan Posey
-    Assignment: L16C
-    Purpose: Practice linked lists
-    Due date: 12/7/2025
+    Assignment: L16D
+    Purpose: Ordered linked list of personType* with operator overloading
+    Due date: 12/11/2025
 */
 #include <iostream>
 #include "personType.h"
@@ -23,16 +23,17 @@ void insertOrdered(personNode*& head, personNode*& tail, personType* value, int&
     newNode->next = NULL;
 
     // If list is empty or new node should be the first node
-    if (head == NULL || head->data >= value) {
+    // Use operator< overload by dereferencing pointers
+    if (head == NULL || *value < *head->data) {
         newNode->next = head;
         head = newNode;
         if (tail == NULL) {
             tail = newNode; // If list was empty, set tail to new node
         }
     } else {
-        // Traverse to find the correct position
+        // Traverse to find the correct position using operator<
         personNode* current = head;
-        while (current->next != NULL && current->next->data < value) {
+        while (current->next != NULL && *current->next->data < *value) {
             current = current->next;
         }
         // Insert the new node
@@ -112,12 +113,10 @@ void buildList(personNode*& head, personNode*& tail, int& numNodes, int sentinel
 void destroyNodeList(personNode*& head, personNode*& tail, int& numNodes) {
     // Traverse linked list
     personNode* current = head;
-    personNode* previous = NULL;
 
     while (current != NULL) {
-        cout << "Deleting " << current->data << endl;
-        previous = current;
-        current = current->next; // Get nextNode;
+        personNode* previous = current;
+        current = current->next;
         delete previous->data; // Delete personType data
         delete previous; // Delete node
         numNodes--; // Decrement node count
@@ -128,10 +127,10 @@ void destroyNodeList(personNode*& head, personNode*& tail, int& numNodes) {
 }
 
 void printList(personNode* head) {
-    // Traverse linked list
-    personNode* current = head;
+    // Traverse linked list using overloaded operator<<
+    const personNode* current = head;
     while (current != NULL) {
-        cout << current->data << endl;
+        cout << *(current->data) << endl;  // Dereference and use operator<<
         current = current->next; // Move to next node
     }
 }
@@ -205,11 +204,13 @@ int main() {
                            "E124", "CS", "MSc");
     studentType* student1 = new studentType("Grace", "Hopper", 3.8, "CS", "S123");
     studentType* student2 = new studentType("Donald", "Knuth", 3.9, "CS", "S124");
+    studentType* student3 = new studentType("Joe", "Mama", 3.95, "CS", "S125");
     
     insertOrdered(head, tail, professor1, numNodes);
     insertOrdered(head, tail, professor2, numNodes);
     insertOrdered(head, tail, student1, numNodes);
     insertOrdered(head, tail, student2, numNodes);
+    insertOrdered(head, tail, student3, numNodes);
 
     cout << "Ordered list (" << numNodes << " nodes):" << endl;
     printList(head);
