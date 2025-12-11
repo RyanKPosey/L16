@@ -5,17 +5,18 @@
     Due date: 12/7/2025
 */
 #include <iostream>
+#include "personType.h"
 
 using namespace std;
 
-struct nodeType {
-    int data;
-    nodeType* next;
+struct personNode {
+    personType* data;
+    personNode* next;
 };
 
-void insertOrdered(nodeType*& head, nodeType*& tail, int value, int& numNodes) {
+void insertOrdered(personNode*& head, personNode*& tail, int value, int& numNodes) {
     // Create new node
-    nodeType* newNode = new nodeType;
+    personNode* newNode = new personNode;
     newNode->data = value;
     newNode->next = NULL;
 
@@ -28,7 +29,7 @@ void insertOrdered(nodeType*& head, nodeType*& tail, int value, int& numNodes) {
         }
     } else {
         // Traverse to find the correct position
-        nodeType* current = head;
+        personNode* current = head;
         while (current->next != NULL && current->next->data < value) {
             current = current->next;
         }
@@ -44,7 +45,7 @@ void insertOrdered(nodeType*& head, nodeType*& tail, int value, int& numNodes) {
     numNodes++;
 }
 
-void buildOrderedList(nodeType*& head, nodeType*& tail, int& numNodes, int sentinel) {
+void buildOrderedList(personNode*& head, personNode*& tail, int& numNodes, int sentinel) {
     int nodeValue;
 
     // get user input
@@ -63,9 +64,9 @@ void buildOrderedList(nodeType*& head, nodeType*& tail, int& numNodes, int senti
     }
 }
 
-void buildList(nodeType*& head, nodeType*& tail, int& numNodes, int sentinel) {
+void buildList(personNode*& head, personNode*& tail, int& numNodes, int sentinel) {
     // temp node
-    nodeType* newNode = nullptr;
+    personNode* newNode = nullptr;
 
     int nodeValue;
 
@@ -77,7 +78,7 @@ void buildList(nodeType*& head, nodeType*& tail, int& numNodes, int sentinel) {
     // populate linked list
     while (nodeValue != sentinel) {
         // init new node
-        newNode = new nodeType;
+        newNode = new personNode;
 
         newNode->data = nodeValue;
         newNode->next = NULL;
@@ -103,10 +104,10 @@ void buildList(nodeType*& head, nodeType*& tail, int& numNodes, int sentinel) {
     }
 }
 
-void destroyNodeList(nodeType*& head, nodeType*& tail, int& numNodes) {
+void destroyNodeList(personNode*& head, personNode*& tail, int& numNodes) {
     // Traverse linked list
-    nodeType* current = head;
-    nodeType* previous = NULL;
+    personNode* current = head;
+    personNode* previous = NULL;
 
     while (current != NULL) {
         cout << "Deleting " << current->data << endl;
@@ -120,17 +121,17 @@ void destroyNodeList(nodeType*& head, nodeType*& tail, int& numNodes) {
     tail = NULL;
 }
 
-void printList(nodeType* head) {
+void printList(personNode* head) {
     // Traverse linked list
-    nodeType* current = head;
+    personNode* current = head;
     while (current != NULL) {
         cout << current->data << endl;
         current = current->next; // Move to next node
     }
 }
 
-nodeType* search(nodeType* head, int key) {
-    nodeType* current = head;
+personNode* search(personNode* head, int key) {
+    personNode* current = head;
 
     while (current != NULL) {
         if (current->data == key) {
@@ -142,8 +143,8 @@ nodeType* search(nodeType* head, int key) {
     return NULL; // Value not found
 }
 
-bool editValue(nodeType* head, int oldValue, int newValue) {
-    nodeType* targetNode = search(head, oldValue);
+bool editValue(personNode* head, int oldValue, int newValue) {
+    personNode* targetNode = search(head, oldValue);
 
     if (targetNode != NULL) {
         targetNode->data = newValue;
@@ -153,9 +154,9 @@ bool editValue(nodeType* head, int oldValue, int newValue) {
     return false; // Value not found
 }
 
-bool deleteValue(nodeType*& head, nodeType*& tail, int key, int& numNodes) {
-    nodeType* current = head;
-    nodeType* previous = NULL;
+bool deleteValue(personNode*& head, personNode*& tail, int key, int& numNodes) {
+    personNode* current = head;
+    personNode* previous = NULL;
 
     while (current != NULL) {
         if (current->data == key) {
@@ -185,8 +186,8 @@ bool deleteValue(nodeType*& head, nodeType*& tail, int key, int& numNodes) {
 
 int main() {
     // init head & tail
-    nodeType *head = NULL;
-    nodeType *tail = NULL;
+    personNode *head = NULL;
+    personNode *tail = NULL;
     int numNodes = 0;
 
     buildOrderedList(head, tail, numNodes, -999);
